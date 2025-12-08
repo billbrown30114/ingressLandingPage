@@ -7,29 +7,7 @@ frontend:
         - npx prisma generate
     build:
       commands:
-        - |
-          # Write environment variables to .env.production for Next.js SSR runtime
-          echo "DATABASE_URL=$DATABASE_URL" > .env.production
-          echo "NEXTAUTH_URL=$NEXTAUTH_URL" >> .env.production
-          echo "NEXTAUTH_SECRET=$NEXTAUTH_SECRET" >> .env.production
-          echo "GOOGLE_CLIENT_ID=$GOOGLE_CLIENT_ID" >> .env.production
-          echo "GOOGLE_CLIENT_SECRET=$GOOGLE_CLIENT_SECRET" >> .env.production
-          echo "NEXT_PUBLIC_GOOGLE_CLIENT_ID=$NEXT_PUBLIC_GOOGLE_CLIENT_ID" >> .env.production
-          echo "=== .env.production created ==="
-          cat .env.production
         - npm run build
-        - |
-          # Copy .env.production to .next directory so it's included in Lambda deployment
-          cp .env.production .next/.env.production || true
-          cp .env.production .next/standalone/.env.production || true
-          cp .env.production .next/standalone/.env.local || true
-          echo "=== Copied .env.production to .next directories ==="
-  artifacts:
-    baseDirectory: .next
-    files:
-      - '**/*'
-    include:
-      - '.env.production'
   cache:
     paths:
       - node_modules/**/*
