@@ -10,5 +10,12 @@ export const prisma =
     log: process.env.NODE_ENV === "development" ? ["query", "error", "warn"] : ["error"],
   });
 
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+// In production, reuse the same instance across requests
+if (process.env.NODE_ENV === "production") {
+  globalForPrisma.prisma = prisma;
+} else {
+  if (!globalForPrisma.prisma) {
+    globalForPrisma.prisma = prisma;
+  }
+}
 
