@@ -19,7 +19,6 @@ if (!process.env.DATABASE_URL) {
   
   for (const envPath of possiblePaths) {
     config({ path: envPath });
-    if (envPath);
     if (process.env.DATABASE_URL) {
       console.log(`Loaded DATABASE_URL from ${envPath}`);
       break;
