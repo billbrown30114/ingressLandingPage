@@ -3,9 +3,6 @@ import { prisma } from "@/lib/prisma";
 
 export async function GET() {
   try {
-    // Test database connection first
-    await prisma.$connect();
-    
     const meetingTypes = await prisma.meetingType.findMany({
       orderBy: { createdAt: "asc" },
     });
@@ -24,7 +21,5 @@ export async function GET() {
       },
       { status: 500 }
     );
-  } finally {
-    await prisma.$disconnect().catch(() => {});
   }
 }
