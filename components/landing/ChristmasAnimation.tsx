@@ -228,7 +228,7 @@ export function ChristmasAnimation() {
       ref={containerRef}
       className="relative w-full h-full" 
       style={{
-        background: 'radial-gradient(circle, #00204A 0%, #000014 80%)',
+      background: 'radial-gradient(circle, #00204A 0%, #000014 80%)',
       }}
     >
       <canvas
