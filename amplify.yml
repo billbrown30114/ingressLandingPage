@@ -25,3 +25,7 @@ customHeaders:
         value: 'DENY'
       - key: 'X-XSS-Protection'
         value: '1; mode=block'
+rewrites:
+  - source: '/<*>'
+    target: '/index.html'
+    status: '200'
