@@ -7,10 +7,11 @@ frontend:
         - npx prisma generate
     build:
       commands:
-        - echo "Writing environment variables to .env.production for runtime access..."
+        - echo "Creating .env.production for Next.js build-time environment variable access..."
         - |
-          # Write all environment variables to .env.production for Next.js runtime access
-          # This is required for Amplify WEB_COMPUTE (Next.js SSR) to access env vars at runtime
+          # Next.js reads .env.production during build and bakes values into the build
+          # The file doesn't need to be deployed - values are embedded in the build artifacts
+          # These values are then available via process.env at runtime in API routes
           touch .env.production
           echo "DATABASE_URL=$DATABASE_URL" >> .env.production
           echo "NEXTAUTH_URL=$NEXTAUTH_URL" >> .env.production
