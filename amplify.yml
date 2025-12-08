@@ -8,7 +8,7 @@ frontend:
     build:
       commands:
         - echo "Verifying environment variables are available during build..."
-        - echo "DATABASE_URL is set: $([ -n "$DATABASE_URL" ] && echo 'yes' || echo 'no')"
+        - 'echo "DATABASE_URL is set: $([ -n "$DATABASE_URL" ] && echo yes || echo no)"'
         - npm run build
   artifacts:
     baseDirectory: .next
