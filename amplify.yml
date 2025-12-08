@@ -7,6 +7,8 @@ frontend:
         - npx prisma generate
     build:
       commands:
+        - echo "Verifying environment variables are available during build..."
+        - echo "DATABASE_URL is set: $([ -n "$DATABASE_URL" ] && echo 'yes' || echo 'no')"
         - npm run build
   cache:
     paths:
