@@ -7,7 +7,27 @@ frontend:
         - npx prisma generate
     build:
       commands:
-        - echo "Verifying environment variables are available during build..."
+        - echo "Writing environment variables to .env.production for runtime access..."
+        - |
+          # Write all environment variables to .env.production for Next.js runtime access
+          # This is required for Amplify WEB_COMPUTE (Next.js SSR) to access env vars at runtime
+          touch .env.production
+          echo "DATABASE_URL=$DATABASE_URL" >> .env.production
+          echo "NEXTAUTH_URL=$NEXTAUTH_URL" >> .env.production
+          echo "NEXTAUTH_SECRET=$NEXTAUTH_SECRET" >> .env.production
+          echo "GOOGLE_CLIENT_ID=$GOOGLE_CLIENT_ID" >> .env.production
+          echo "GOOGLE_CLIENT_SECRET=$GOOGLE_CLIENT_SECRET" >> .env.production
+          echo "NEXT_PUBLIC_GOOGLE_CLIENT_ID=$NEXT_PUBLIC_GOOGLE_CLIENT_ID" >> .env.production
+          # Optional Gmail/Email variables (only if set)
+          [ -n "$GMAIL_CLIENT_ID" ] && echo "GMAIL_CLIENT_ID=$GMAIL_CLIENT_ID" >> .env.production || true
+          [ -n "$GMAIL_CLIENT_SECRET" ] && echo "GMAIL_CLIENT_SECRET=$GMAIL_CLIENT_SECRET" >> .env.production || true
+          [ -n "$GMAIL_REFRESH_TOKEN" ] && echo "GMAIL_REFRESH_TOKEN=$GMAIL_REFRESH_TOKEN" >> .env.production || true
+          [ -n "$GOOGLE_SERVICE_ACCOUNT_KEY" ] && echo "GOOGLE_SERVICE_ACCOUNT_KEY=$GOOGLE_SERVICE_ACCOUNT_KEY" >> .env.production || true
+          [ -n "$SMTP_USER" ] && echo "SMTP_USER=$SMTP_USER" >> .env.production || true
+          [ -n "$SMTP_PASSWORD" ] && echo "SMTP_PASSWORD=$SMTP_PASSWORD" >> .env.production || true
+          [ -n "$SMTP_HOST" ] && echo "SMTP_HOST=$SMTP_HOST" >> .env.production || true
+          [ -n "$SMTP_PORT" ] && echo "SMTP_PORT=$SMTP_PORT" >> .env.production || true
+        - echo "Verifying DATABASE_URL is set..."
         - 'echo "DATABASE_URL is set: $([ -n "$DATABASE_URL" ] && echo yes || echo no)"'
         - npm run build
   artifacts:
