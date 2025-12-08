@@ -1,0 +1,80 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                    String   @id @default(cuid())
+  email                 String   @unique
+  name                  String?
+  defaultAvailability   Json?    @map("default_availability")
+  createdAt             DateTime @default(now()) @map("created_at")
+  updatedAt             DateTime @updatedAt @map("updated_at")
+  bookings              Booking[]
+  overrides             AvailabilityOverride[]
+
+  @@map("users")
+}
+
+model MeetingType {
+  id          String   @id @default(cuid())
+  title       String
+  duration    Int      // in minutes
+  description String?  @db.Text
+  location    String?  // "Google Meet" or "Phone"
+  rules       Json?    // availability rules override
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  bookings    Booking[]
+
+  @@map("meeting_types")
+}
+
+model Booking {
+  id            String      @id @default(cuid())
+  visitorName   String      @map("visitor_name")
+  visitorEmail  String      @map("visitor_email")
+  visitorPhone  String?     @map("visitor_phone")
+  notes         String?     @db.Text
+  startTime     DateTime    @map("start_time")
+  endTime       DateTime    @map("end_time")
+  meetingTypeId String      @map("meeting_type_id")
+  staffUserId   String      @map("staff_user_id")
+  googleEventId String?     @unique @map("google_event_id")
+  status        BookingStatus @default(CONFIRMED)
+  createdAt     DateTime    @default(now()) @map("created_at")
+  updatedAt     DateTime    @updatedAt @map("updated_at")
+
+  meetingType   MeetingType @relation(fields: [meetingTypeId], references: [id])
+  staffUser     User        @relation(fields: [staffUserId], references: [id])
+
+  @@map("bookings")
+}
+
+model AvailabilityOverride {
+  id          String   @id @default(cuid())
+  date        DateTime @db.Date
+  modifiedHours Json?  @map("modified_hours")
+  isVacation  Boolean  @default(false) @map("is_vacation")
+  userId      String   @map("user_id")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  user        User     @relation(fields: [userId], references: [id])
+
+  @@unique([userId, date])
+  @@map("availability_overrides")
+}
+
+enum BookingStatus {
+  CONFIRMED
+  CANCELLED
+  PENDING
+}
