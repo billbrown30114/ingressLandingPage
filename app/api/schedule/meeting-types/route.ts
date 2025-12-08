@@ -3,6 +3,11 @@ import { prisma } from "@/lib/prisma";
 
 export async function GET() {
   try {
+    // Log environment info for debugging
+    console.log("API Route - DATABASE_URL present:", !!process.env.DATABASE_URL);
+    console.log("API Route - NODE_ENV:", process.env.NODE_ENV);
+    console.log("API Route - cwd:", process.cwd());
+    
     const meetingTypes = await prisma.meetingType.findMany({
       orderBy: { createdAt: "asc" },
     });
@@ -12,7 +17,6 @@ export async function GET() {
     console.error("Error fetching meeting types:", error);
     const errorMessage = error?.message || "Unknown error";
     const errorCode = error?.code || "UNKNOWN";
-    const errorStack = error?.stack || "";
     
     // Return detailed error for debugging
     return NextResponse.json(
@@ -20,8 +24,9 @@ export async function GET() {
         error: "Failed to fetch meeting types",
         message: errorMessage,
         code: errorCode,
-        stack: errorStack.split('\n').slice(0, 3).join('\n'), // First 3 lines of stack
         hasDatabaseUrl: !!process.env.DATABASE_URL,
+        nodeEnv: process.env.NODE_ENV,
+        cwd: process.cwd(),
       },
       { status: 500 }
     );
