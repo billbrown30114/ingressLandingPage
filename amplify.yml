@@ -3,15 +3,16 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm ci
+        - npm ci --legacy-peer-deps
         - npx prisma generate
-    build:
-      commands:
-        - echo "Creating .env.production for Next.js build-time environment variable access..."
+        - echo "Creating .env.production in preBuild phase (before npm run build)..."
         - |
-          # Next.js reads .env.production during build and bakes values into the build
-          # The file doesn't need to be deployed - values are embedded in the build artifacts
-          # These values are then available via process.env at runtime in API routes
+          # IMPORTANT: Create .env.production in preBuild phase (NOT build phase)
+          # Next.js reads .env.production when npm run build starts and embeds values into .next directory
+          # The .env.production file itself is NOT deployed (only .next directory is deployed)
+          # However, Next.js embeds the values into the server bundle during build
+          # These embedded values are available via process.env at runtime in API routes
+          # This is the correct approach for Amplify WEB_COMPUTE - values are baked into the build
           touch .env.production
           echo "DATABASE_URL=$DATABASE_URL" >> .env.production
           echo "NEXTAUTH_URL=$NEXTAUTH_URL" >> .env.production
@@ -28,7 +29,13 @@ frontend:
           [ -n "$SMTP_PASSWORD" ] && echo "SMTP_PASSWORD=$SMTP_PASSWORD" >> .env.production || true
           [ -n "$SMTP_HOST" ] && echo "SMTP_HOST=$SMTP_HOST" >> .env.production || true
           [ -n "$SMTP_PORT" ] && echo "SMTP_PORT=$SMTP_PORT" >> .env.production || true
-        - echo "Verifying DATABASE_URL is set..."
+          echo "Verifying .env.production was created..."
+          ls -la .env.production && echo "✓ .env.production exists" || echo "✗ ERROR: .env.production not created!"
+    build:
+      commands:
+        - echo "Verifying .env.production exists before npm run build..."
+        - ls -la .env.production && echo "✓ .env.production found" || echo "✗ WARNING: .env.production missing!"
+        - echo "Verifying DATABASE_URL environment variable..."
         - 'echo "DATABASE_URL is set: $([ -n "$DATABASE_URL" ] && echo yes || echo no)"'
         - npm run build
   artifacts:
