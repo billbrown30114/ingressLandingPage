@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { addMinutes, parseISO } from "date-fns";
+import { addMinutes, parseISO, format } from "date-fns";
+import { sendEmail, generateConfirmationEmail, generateStaffNotificationEmail } from "@/lib/gmail";
 
 export async function POST(request: NextRequest) {
   try {
@@ -57,6 +58,46 @@ export async function POST(request: NextRequest) {
         meetingType: true,
       },
     });
+
+    // Send confirmation email to visitor
+    try {
+      const fromEmail = process.env.SMTP_USER || staffUser.email || "noreply@ingresssoftware.com";
+      const confirmationEmailHtml = generateConfirmationEmail({
+        visitorName,
+        meetingDate: format(start, "MMMM d, yyyy"),
+        meetingTime: format(start, "h:mm a"),
+        duration: meetingType.duration,
+      });
+
+      await sendEmail(fromEmail, {
+        to: visitorEmail,
+        subject: `Meeting Confirmed: ${meetingType.title}`,
+        htmlBody: confirmationEmailHtml,
+      });
+
+      // Send notification email to staff member
+      if (staffUser.email) {
+        const staffEmailHtml = generateStaffNotificationEmail({
+          visitorName,
+          visitorEmail,
+          visitorPhone: visitorPhone || undefined,
+          meetingDate: format(start, "MMMM d, yyyy"),
+          meetingTime: format(start, "h:mm a"),
+          duration: meetingType.duration,
+          meetingType: meetingType.title,
+          notes: notes || undefined,
+        });
+
+        await sendEmail(fromEmail, {
+          to: staffUser.email,
+          subject: `New Meeting Scheduled: ${meetingType.title}`,
+          htmlBody: staffEmailHtml,
+        });
+      }
+    } catch (emailError) {
+      // Log email error but don't fail the booking creation
+      console.error("Error sending confirmation emails:", emailError);
+    }
 
     return NextResponse.json(booking);
   } catch (error) {
