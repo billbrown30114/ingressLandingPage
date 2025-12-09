@@ -11,11 +11,6 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   
-  // Enable parallel builds for faster deployment
-  experimental: {
-    parallelBuilds: true,
-  },
-  
   images: {
     domains: ['lh3.googleusercontent.com'],
     // Use unoptimized images for Amplify compatibility
