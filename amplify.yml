@@ -5,14 +5,7 @@ frontend:
       commands:
         - npm ci --legacy-peer-deps
         - npx prisma generate
-        - echo "Creating .env.production in preBuild phase (before npm run build)..."
         - |
-          # IMPORTANT: Create .env.production in preBuild phase (NOT build phase)
-          # Next.js reads .env.production when npm run build starts and embeds values into .next directory
-          # The .env.production file itself is NOT deployed (only .next directory is deployed)
-          # However, Next.js embeds the values into the server bundle during build
-          # These embedded values are available via process.env at runtime in API routes
-          # This is the correct approach for Amplify WEB_COMPUTE - values are baked into the build
           touch .env.production
           echo "DATABASE_URL=$DATABASE_URL" >> .env.production
           echo "NEXTAUTH_URL=$NEXTAUTH_URL" >> .env.production
@@ -20,7 +13,6 @@ frontend:
           echo "GOOGLE_CLIENT_ID=$GOOGLE_CLIENT_ID" >> .env.production
           echo "GOOGLE_CLIENT_SECRET=$GOOGLE_CLIENT_SECRET" >> .env.production
           echo "NEXT_PUBLIC_GOOGLE_CLIENT_ID=$NEXT_PUBLIC_GOOGLE_CLIENT_ID" >> .env.production
-          # Optional Gmail/Email variables (only if set)
           [ -n "$GMAIL_CLIENT_ID" ] && echo "GMAIL_CLIENT_ID=$GMAIL_CLIENT_ID" >> .env.production || true
           [ -n "$GMAIL_CLIENT_SECRET" ] && echo "GMAIL_CLIENT_SECRET=$GMAIL_CLIENT_SECRET" >> .env.production || true
           [ -n "$GMAIL_REFRESH_TOKEN" ] && echo "GMAIL_REFRESH_TOKEN=$GMAIL_REFRESH_TOKEN" >> .env.production || true
@@ -29,12 +21,8 @@ frontend:
           [ -n "$SMTP_PASSWORD" ] && echo "SMTP_PASSWORD=$SMTP_PASSWORD" >> .env.production || true
           [ -n "$SMTP_HOST" ] && echo "SMTP_HOST=$SMTP_HOST" >> .env.production || true
           [ -n "$SMTP_PORT" ] && echo "SMTP_PORT=$SMTP_PORT" >> .env.production || true
-          echo "Verifying .env.production was created..."
-          ls -la .env.production && echo "✓ .env.production exists" || echo "✗ ERROR: .env.production not created!"
     build:
       commands:
-        - echo "Verifying .env.production exists before npm run build..."
-        - ls -la .env.production && echo ".env.production found" || echo "WARNING: .env.production missing!"
         - npm run build
   artifacts:
     baseDirectory: .next
