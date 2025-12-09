@@ -34,9 +34,7 @@ frontend:
     build:
       commands:
         - echo "Verifying .env.production exists before npm run build..."
-        - ls -la .env.production && echo "✓ .env.production found" || echo "✗ WARNING: .env.production missing!"
-        - echo "Verifying DATABASE_URL environment variable..."
-        - echo "DATABASE_URL is set: $([ -n \"$DATABASE_URL\" ] && echo yes || echo no)"
+        - ls -la .env.production && echo ".env.production found" || echo "WARNING: .env.production missing!"
         - npm run build
   artifacts:
     baseDirectory: .next
