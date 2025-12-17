@@ -9,7 +9,7 @@ export function AboutSection() {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
+            {/* <div>
               <div className="inline-block mb-4 px-4 py-2 bg-gradient-to-r from-orange-100 to-blue-100 dark:from-orange-900 dark:to-blue-900 rounded-full">
                 <span className="text-sm font-bold text-orange-700 dark:text-orange-300">AI INNOVATION</span>
               </div>
@@ -42,9 +42,9 @@ export function AboutSection() {
               >
                 Learn More About Our AI Expertise →
               </Link>
-            </div>
+            </div> */}
             
-            <div className="relative">
+            {/* <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-blue-400 rounded-3xl blur-2xl opacity-20"></div>
               <div className="relative bg-gradient-to-br from-orange-600 via-orange-500 to-blue-600 rounded-3xl p-8 text-white">
                 <div className="mb-4">
@@ -70,7 +70,7 @@ export function AboutSection() {
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Services - Comprehensive AI Solutions for Business</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text { background: linear-gradient(135deg, #ea580c, #2563eb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass-nav { backdrop-filter: blur(20px); background: rgba(15, 20, 25, 0.8); }
+        .hero-bg { background: linear-gradient(135deg, #1e3a8a 0%, #ea580c 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-8px) rotateX(5deg); box-shadow: 0 25px 50px rgba(234, 88, 12, 0.2); }
+        .glow { box-shadow: 0 0 20px rgba(234, 88, 12, 0.3); }
+        .service-active { border: 2px solid #ea580c; background: rgba(234, 88, 12, 0.1); }
+    </style>
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">Ingress Software</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="/" class="text-white hover:text-orange-300 transition-colors">Home</a>
+                    <a href="/ai-solutions/services.html" class="text-orange-400 hover:text-orange-300 transition-colors">Services</a>
+                    <a href="/ai-solutions/solutions.html" class="text-white hover:text-orange-300 transition-colors">Solutions</a>
+                    <a href="/contact" class="text-white hover:text-orange-300 transition-colors">Contact</a>
+                </div>
+                <a href="/schedule" class="bg-gradient-to-r from-orange-600 to-blue-600 px-6 py-2 rounded-lg hover:from-orange-500 hover:to-blue-500 transition-all text-white font-semibold">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative py-32 bg-gradient-to-br from-blue-900 via-blue-800 to-orange-900">
+        <div class="max-w-7xl mx-auto px-6 pt-20">
+            <div class="text-center">
+                <h1 class="text-6xl font-black mb-6 text-white">
+                    <span class="bg-gradient-to-r from-white via-orange-200 to-blue-200 bg-clip-text text-transparent">AI Services</span>
+                </h1>
+                <p class="text-2xl text-blue-200 max-w-4xl mx-auto">
+                    Comprehensive artificial intelligence solutions designed to transform your business operations, enhance decision-making, and drive sustainable growth.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Selector -->
+    <section class="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-4 gap-6 mb-16">
+                <button class="service-tab bg-white dark:bg-gray-800 p-6 rounded-xl text-left hover:bg-gray-100 dark:hover:bg-gray-700 transition-all border border-gray-200 dark:border-gray-700" data-service="automation">
+                    <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg flex items-center justify-center mb-4">
+                        <img src="resources/automation.jpg" alt="Automation" class="w-8 h-8 rounded">
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">AI Automation</h3>
+                    <p class="text-sm text-gray-400">Smart workflows & process optimization</p>
+                </button>
+
+                <button class="service-tab bg-gray-800 p-6 rounded-xl text-left hover:bg-gray-700 transition-all" data-service="analytics">
+                    <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
+                        <img src="resources/analytics.jpg" alt="Analytics" class="w-8 h-8 rounded">
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Predictive Analytics</h3>
+                    <p class="text-sm text-gray-400">Forecasting & trend analysis</p>
+                </button>
+
+                <button class="service-tab bg-gray-800 p-6 rounded-xl text-left hover:bg-gray-700 transition-all" data-service="agents">
+                    <div class="w-12 h-12 bg-gradient-to-r from-orange-600 to-blue-600 rounded-lg flex items-center justify-center mb-4">
+                        <img src="resources/agents.jpg" alt="Agents" class="w-8 h-8 rounded">
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">AI Agents</h3>
+                    <p class="text-sm text-gray-400">Conversational AI assistants</p>
+                </button>
+
+                <button class="service-tab bg-gray-800 p-6 rounded-xl text-left hover:bg-gray-700 transition-all" data-service="intelligence">
+                    <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-blue-500 rounded-lg flex items-center justify-center mb-4">
+                        <img src="resources/intelligence.jpg" alt="Intelligence" class="w-8 h-8 rounded">
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Real-Time AI</h3>
+                    <p class="text-sm text-gray-400">Instant decision-making systems</p>
+                </button>
+            </div>
+
+            <!-- Service Content -->
+            <div id="service-content" class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
+                <!-- Automation Content -->
+                <div id="automation-content" class="service-content hidden">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h2 class="text-4xl font-bold mb-6 text-gray-900 dark:text-white">AI-Powered Automation</h2>
+                            <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
+                                Transform your business operations with intelligent workflows that learn, adapt, and optimize processes 24/7. Our AI automation solutions reduce manual effort by up to 85% while improving accuracy and efficiency.
+                            </p>
+                            <div class="space-y-6">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Smart Workflow Design</h4>
+                                        <p class="text-gray-600 dark:text-gray-400">Automatically design and optimize business processes using machine learning algorithms.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2">Continuous Learning</h4>
+                                        <p class="text-gray-400">Systems that adapt and improve over time, learning from your business patterns.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2">Error Reduction</h4>
+                                        <p class="text-gray-400">Eliminate human errors and ensure consistent process execution across all operations.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/contact" class="inline-block bg-gradient-to-r from-orange-600 to-blue-600 px-8 py-3 rounded-lg font-semibold hover:from-orange-500 hover:to-blue-500 transition-all mt-8 text-white">
+                                Explore Automation Solutions
+                            </a>
+                        </div>
+                        <div>
+                            <img src="resources/automation.jpg" alt="AI Automation" class="w-full h-auto rounded-xl">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Content -->
+                <div id="analytics-content" class="service-content hidden">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <img src="resources/analytics.jpg" alt="Predictive Analytics" class="w-full h-auto rounded-xl">
+                        </div>
+                        <div>
+                            <h2 class="text-4xl font-bold mb-6">Predictive Analytics</h2>
+                            <p class="text-xl text-gray-300 mb-8">
+                                Harness the power of machine learning to forecast trends, prevent issues, and identify opportunities before they emerge. Our predictive models achieve 96% accuracy in trend forecasting.
+                            </p>
+                            <div class="space-y-6">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2">Advanced Forecasting</h4>
+                                        <p class="text-gray-400">Predict market trends, customer behavior, and operational outcomes with unprecedented accuracy.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2">Risk Assessment</h4>
+                                        <p class="text-gray-400">Identify potential risks and opportunities before they impact your business operations.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2">Real-Time Insights</h4>
+                                        <p class="text-gray-400">Get instant analytics and recommendations based on current data patterns.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/contact" class="inline-block bg-gradient-to-r from-orange-600 to-blue-600 px-8 py-3 rounded-lg font-semibold hover:from-orange-500 hover:to-blue-500 transition-all mt-8 text-white">
+                                View Analytics Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agents Content -->
+                <div id="agents-content" class="service-content hidden">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h2 class="text-4xl font-bold mb-6">Custom AI Agents</h2>
+                            <p class="text-xl text-gray-300 mb-8">
+                                Deploy intelligent conversational AI assistants that handle customer service, scheduling, and data analysis tasks 24/7. Our AI agents understand context and provide human-like interactions.
+                            </p>
+                            <div class="space-y-6">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2">Natural Language Processing</h4>
+                                        <p class="text-gray-400">Advanced NLP capabilities for understanding and responding to complex queries.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2">Multi-Channel Support</h4>
+                                        <p class="text-gray-400">Deploy across web, mobile, social media, and voice platforms seamlessly.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2">Intelligent Escalation</h4>
+                                        <p class="text-gray-400">Smart routing to human agents when complex issues require personal attention.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/contact" class="inline-block bg-gradient-to-r from-orange-600 to-blue-600 px-8 py-3 rounded-lg font-semibold hover:from-orange-500 hover:to-blue-500 transition-all mt-8 text-white">
+                                Meet Our AI Agents
+                            </a>
+                        </div>
+                        <div>
+                            <img src="resources/agents.jpg" alt="AI Agents" class="w-full h-auto rounded-xl">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intelligence Content -->
+                <div id="intelligence-content" class="service-content hidden">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <img src="resources/intelligence.jpg" alt="Real-Time Intelligence" class="w-full h-auto rounded-xl">
+                        </div>
+                        <div>
+                            <h2 class="text-4xl font-bold mb-6">Real-Time Intelligence</h2>
+                            <p class="text-xl text-gray-300 mb-8">
+                                Process data instantly with AI systems that make smart decisions in milliseconds. Perfect for high-frequency trading, real-time monitoring, and instant response systems.
+                            </p>
+                            <div class="space-y-6">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2">Sub-Millisecond Response</h4>
+                                        <p class="text-gray-400">Ultra-fast processing capabilities for time-critical applications and decisions.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2">Stream Processing</h4>
+                                        <p class="text-gray-400">Handle massive data streams in real-time without latency or bottlenecks.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2">Adaptive Decision Making</h4>
+                                        <p class="text-gray-400">Systems that adapt their decision-making based on real-time conditions and outcomes.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/contact" class="inline-block bg-gradient-to-r from-orange-600 to-blue-600 px-8 py-3 rounded-lg font-semibold hover:from-orange-500 hover:to-blue-500 transition-all mt-8 text-white">
+                                Experience Real-Time AI
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Predictive Analytics Dashboard -->
+    <section class="py-20 bg-gradient-to-br from-orange-50 via-blue-50 to-cyan-50 dark:from-gray-800 dark:via-blue-900 dark:to-orange-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-6 text-gray-900 dark:text-white">Predictive Analytics Demo</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Experience the power of real-time predictive analytics with our interactive dashboard.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Market Trends</h3>
+                    <div id="trends-chart" class="h-64"></div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold mb-6">Risk Assessment</h3>
+                    <div id="risk-chart" class="h-64"></div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold mb-6">Opportunity Score</h3>
+                    <div id="opportunity-chart" class="h-64"></div>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-gray-800 rounded-2xl p-8">
+                <h3 class="text-2xl font-bold mb-6">Performance Metrics</h3>
+                <div id="performance-dashboard" class="h-80"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-6 text-gray-900 dark:text-white">AI ROI Calculator</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300">
+                    Calculate the potential return on investment for your AI implementation.
+                </p>
+            </div>
+            
+            <div class="bg-gray-800 rounded-2xl p-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-gray-900 dark:text-white">Current Monthly Operations Cost</label>
+                            <input type="range" id="cost-slider" min="10000" max="500000" value="100000" class="w-full">
+                            <div class="flex justify-between text-sm text-gray-400 mt-1">
+                                <span>$10K</span>
+                                <span id="cost-value">$100K</span>
+                                <span>$500K</span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-gray-900 dark:text-white">Process Automation Level</label>
+                            <input type="range" id="automation-slider" min="10" max="90" value="50" class="w-full">
+                            <div class="flex justify-between text-sm text-gray-400 mt-1">
+                                <span>10%</span>
+                                <span id="automation-value">50%</span>
+                                <span>90%</span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-gray-900 dark:text-white">Industry Type</label>
+                            <select id="industry-select" class="w-full bg-gray-100 dark:bg-gray-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white">
+                                <option value="manufacturing">Manufacturing</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="retail">Retail</option>
+                                <option value="finance">Finance</option>
+                                <option value="technology">Technology</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-100 dark:bg-gray-700 rounded-xl p-6">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Projected ROI</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600 dark:text-gray-300">Annual Savings</span>
+                                <span class="text-2xl font-bold text-green-600 dark:text-green-400" id="annual-savings">$0</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600 dark:text-gray-300">Efficiency Gain</span>
+                                <span class="text-2xl font-bold text-orange-600 dark:text-orange-400" id="efficiency-gain">0%</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600 dark:text-gray-300">Payback Period</span>
+                                <span class="text-2xl font-bold text-blue-600 dark:text-blue-400" id="payback-period">0 months</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600 dark:text-gray-300">5-Year ROI</span>
+                                <span class="text-3xl font-bold gradient-text" id="five-year-roi">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gradient-to-r from-orange-600 to-blue-600">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-bold mb-6">Ready to Implement AI?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">
+                Schedule a consultation with our AI experts to discuss your specific needs and create a custom implementation plan.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/schedule" class="bg-white text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all">
+                    Schedule Consultation
+                </a>
+                <a href="/contact" class="border border-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="text-2xl font-bold gradient-text mb-4">Ingress Software</div>
+            <p class="text-gray-400 mb-8">Transforming businesses with intelligent automation</p>
+            <p class="text-sm text-gray-500">© 2025 Ingress Software. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // Services page specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            initServiceTabs();
+            initAnalyticsCharts();
+            initROICalculator();
+        });
+
+        function initServiceTabs() {
+            const tabs = document.querySelectorAll('.service-tab');
+            const contents = document.querySelectorAll('.service-content');
+            
+            // Show automation content by default
+            showServiceContent('automation');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const service = this.dataset.service;
+                    showServiceContent(service);
+                    
+                    // Update active tab
+                    tabs.forEach(t => t.classList.remove('service-active'));
+                    this.classList.add('service-active');
+                });
+            });
+        }
+
+        function showServiceContent(service) {
+            const contents = document.querySelectorAll('.service-content');
+            contents.forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            const targetContent = document.getElementById(`${service}-content`);
+            if (targetContent) {
+                targetContent.classList.remove('hidden');
+                
+                // Animate content appearance
+                anime({
+                    targets: targetContent,
+                    opacity: [0, 1],
+                    translateY: [20, 0],
+                    duration: 500,
+                    easing: 'easeOutExpo'
+                });
+            }
+        }
+
+        function initAnalyticsCharts() {
+            // Trends Chart
+            const trendsChart = echarts.init(document.getElementById('trends-chart'));
+            const trendsOption = {
+                backgroundColor: 'transparent',
+                grid: { left: '10%', right: '10%', bottom: '15%', top: '15%' },
+                xAxis: {
+                    type: 'category',
+                    data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    axisLine: { lineStyle: { color: '#64748b' } },
+                    axisLabel: { color: '#94a3b8', fontSize: 10 }
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLine: { lineStyle: { color: '#64748b' } },
+                    axisLabel: { color: '#94a3b8', fontSize: 10 },
+                    splitLine: { lineStyle: { color: '#374151' } }
+                },
+                series: [{
+                    data: [85, 92, 88, 95, 90, 87],
+                    type: 'line',
+                    smooth: true,
+                    lineStyle: { color: '#ea580c', width: 2 },
+                    itemStyle: { color: '#ea580c' },
+                    areaStyle: {
+                        color: {
+                            type: 'linear',
+                            x: 0, y: 0, x2: 0, y2: 1,
+                            colorStops: [
+                                { offset: 0, color: 'rgba(234, 88, 12, 0.3)' },
+                                { offset: 1, color: 'rgba(234, 88, 12, 0.05)' }
+                            ]
+                        }
+                    }
+                }]
+            };
+            trendsChart.setOption(trendsOption);
+
+            // Risk Chart
+            const riskChart = echarts.init(document.getElementById('risk-chart'));
+            const riskOption = {
+                backgroundColor: 'transparent',
+                series: [{
+                    type: 'gauge',
+                    startAngle: 180,
+                    endAngle: 0,
+                    min: 0,
+                    max: 100,
+                    splitNumber: 5,
+                    itemStyle: {
+                        color: '#2563eb'
+                    },
+                    progress: {
+                        show: true,
+                        width: 8
+                    },
+                    pointer: {
+                        show: false
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            width: 8,
+                            color: [[1, '#374151']]
+                        }
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    splitLine: {
+                        show: false
+                    },
+                    axisLabel: {
+                        show: false
+                    },
+                        detail: {
+                        valueAnimation: true,
+                        formatter: '{value}%',
+                        color: '#2563eb',
+                        fontSize: 20,
+                        offsetCenter: [0, '70%']
+                    },
+                    data: [{ value: 23, name: 'Risk Level' }]
+                }]
+            };
+            riskChart.setOption(riskOption);
+
+            // Opportunity Chart
+            const opportunityChart = echarts.init(document.getElementById('opportunity-chart'));
+            const opportunityOption = {
+                backgroundColor: 'transparent',
+                grid: { left: '10%', right: '10%', bottom: '15%', top: '15%' },
+                xAxis: {
+                    type: 'category',
+                    data: ['Low', 'Medium', 'High', 'Critical'],
+                    axisLine: { lineStyle: { color: '#64748b' } },
+                    axisLabel: { color: '#94a3b8', fontSize: 10 }
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLine: { lineStyle: { color: '#64748b' } },
+                    axisLabel: { color: '#94a3b8', fontSize: 10 },
+                    splitLine: { lineStyle: { color: '#374151' } }
+                },
+                series: [{
+                    data: [15, 35, 45, 25],
+                    type: 'bar',
+                    itemStyle: {
+                        color: {
+                            type: 'linear',
+                            x: 0, y: 0, x2: 0, y2: 1,
+                            colorStops: [
+                                { offset: 0, color: '#10b981' },
+                                { offset: 1, color: '#059669' }
+                            ]
+                        }
+                    }
+                }]
+            };
+            opportunityChart.setOption(opportunityOption);
+
+            // Performance Dashboard
+            const performanceChart = echarts.init(document.getElementById('performance-dashboard'));
+            const performanceOption = {
+                backgroundColor: 'transparent',
+                grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
+                xAxis: {
+                    type: 'category',
+                    data: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                    axisLine: { lineStyle: { color: '#64748b' } },
+                    axisLabel: { color: '#94a3b8' }
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLine: { lineStyle: { color: '#64748b' } },
+                    axisLabel: { color: '#94a3b8' },
+                    splitLine: { lineStyle: { color: '#374151' } }
+                },
+                series: [
+                    {
+                        name: 'Efficiency',
+                        data: [85, 92, 88, 95],
+                        type: 'line',
+                        smooth: true,
+                        lineStyle: { color: '#ea580c', width: 3 },
+                        itemStyle: { color: '#ea580c' }
+                    },
+                    {
+                        name: 'Accuracy',
+                        data: [96, 94, 97, 95],
+                        type: 'line',
+                        smooth: true,
+                        lineStyle: { color: '#2563eb', width: 3 },
+                        itemStyle: { color: '#2563eb' }
+                    },
+                    {
+                        name: 'Cost Savings',
+                        data: [73, 78, 75, 82],
+                        type: 'line',
+                        smooth: true,
+                        lineStyle: { color: '#ea580c', width: 3 },
+                        itemStyle: { color: '#ea580c' }
+                    }
+                ],
+                tooltip: {
+                    trigger: 'axis',
+                    backgroundColor: '#1f2937',
+                    borderColor: '#374151',
+                    textStyle: { color: '#f9fafb' }
+                },
+                legend: {
+                    data: ['Efficiency', 'Accuracy', 'Cost Savings'],
+                    textStyle: { color: '#94a3b8' },
+                    top: 10
+                }
+            };
+            performanceChart.setOption(performanceOption);
+        }
+
+        function initROICalculator() {
+            const costSlider = document.getElementById('cost-slider');
+            const automationSlider = document.getElementById('automation-slider');
+            const industrySelect = document.getElementById('industry-select');
+            
+            const costValue = document.getElementById('cost-value');
+            const automationValue = document.getElementById('automation-value');
+            const annualSavings = document.getElementById('annual-savings');
+            const efficiencyGain = document.getElementById('efficiency-gain');
+            const paybackPeriod = document.getElementById('payback-period');
+            const fiveYearROI = document.getElementById('five-year-roi');
+            
+            function updateCalculator() {
+                const cost = parseInt(costSlider.value);
+                const automation = parseInt(automationSlider.value);
+                const industry = industrySelect.value;
+                
+                // Update display values
+                costValue.textContent = `$${cost / 1000}K`;
+                automationValue.textContent = `${automation}%`;
+                
+                // Calculate ROI based on industry and automation level
+                const industryMultipliers = {
+                    manufacturing: 0.4,
+                    healthcare: 0.35,
+                    retail: 0.3,
+                    finance: 0.45,
+                    technology: 0.5
+                };
+                
+                const multiplier = industryMultipliers[industry] || 0.4;
+                const annualSave = cost * (automation / 100) * multiplier;
+                const efficiency = automation + 20;
+                const payback = Math.round(12 / ((automation / 100) * multiplier));
+                const roi = Math.round((annualSave * 5) / (cost * 0.3) * 100);
+                
+                annualSavings.textContent = `$${Math.round(annualSave / 1000)}K`;
+                efficiencyGain.textContent = `${efficiency}%`;
+                paybackPeriod.textContent = `${payback} months`;
+                fiveYearROI.textContent = `${roi}%`;
+            }
+            
+            costSlider.addEventListener('input', updateCalculator);
+            automationSlider.addEventListener('input', updateCalculator);
+            industrySelect.addEventListener('change', updateCalculator);
+            
+            // Initialize calculator
+            updateCalculator();
+        }
+    </script>
+</body>
+</html>

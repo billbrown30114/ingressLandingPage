@@ -9,21 +9,21 @@ const values = [
     description: "AI systems that process millions of data points in seconds, delivering instant insights and decisions",
     stat: "10x Faster",
     gradient: "from-orange-400 to-orange-600",
-    bgGradient: "from-orange-100 to-orange-200",
-    bgDark: "from-orange-900 to-orange-800",
-    textColor: "text-orange-700",
-    textDark: "dark:text-orange-300",
+    bgGradient: "from-orange-700 to-orange-600",
+    bgDark: "from-orange-700 to-orange-600",
+    textColor: "text-white",
+    textDark: "dark:text-white",
   },
   {
     icon: Target,
     title: "Precision Intelligence",
-    description: "Machine learning models with 99%+ accuracy, reducing errors and maximizing efficiency",
-    stat: "99%+ Accuracy",
+    description: "Machine learning models with Best-in-Class accuracy, reducing errors and maximizing efficiency",
+    stat: "Best-in-Class Accuracy",
     gradient: "from-blue-400 to-blue-600",
-    bgGradient: "from-blue-100 to-blue-200",
-    bgDark: "from-blue-900 to-blue-800",
-    textColor: "text-blue-700",
-    textDark: "dark:text-blue-300",
+    bgGradient: "from-blue-700 to-blue-600",
+    bgDark: "from-blue-700 to-blue-600",
+    textColor: "text-white",
+    textDark: "dark:text-white",
   },
   {
     icon: RefreshCw,
@@ -31,10 +31,10 @@ const values = [
     description: "AI that continuously improves, adapting to your business needs without constant intervention",
     stat: "24/7 Learning",
     gradient: "from-cyan-400 to-cyan-600",
-    bgGradient: "from-cyan-100 to-cyan-200",
-    bgDark: "from-cyan-900 to-cyan-800",
-    textColor: "text-cyan-700",
-    textDark: "dark:text-cyan-300",
+    bgGradient: "from-cyan-700 to-cyan-600",
+    bgDark: "from-cyan-700 to-cyan-600",
+    textColor: "text-white",
+    textDark: "dark:text-white",
   },
 ];
 
@@ -52,7 +52,7 @@ export function ValueProposition() {
             <span className="text-sm font-bold text-orange-700 dark:text-orange-300">WHY AI MATTERS</span>
           </div>
           <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-orange-600 via-orange-500 to-blue-600 bg-clip-text text-transparent">
-            AI That Delivers Results
+            What you can expect from Ingress
           </h2>
           <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
             We don&apos;t just implement AI—we build intelligent systems that transform how you do business
