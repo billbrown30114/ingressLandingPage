@@ -26,7 +26,7 @@ export default function AboutPage() {
               <span className="text-sm font-semibold text-orange-200">ABOUT INGRESS SOFTWARE</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight bg-gradient-to-r from-white via-orange-200 to-blue-200 bg-clip-text text-transparent">
-              Behind the Scenes at Beyond
+              Behind the Scenes at Ingress Software
             </h1>
             <p className="text-xl md:text-2xl text-blue-200 max-w-3xl mx-auto">
               Driving digital transformation through cutting-edge AI, IoT, and automation technology

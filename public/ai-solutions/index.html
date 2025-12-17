@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Solutions - Transform Your Business with Intelligent Automation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text { background: linear-gradient(135deg, #00d4ff, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass-nav { backdrop-filter: blur(20px); background: rgba(15, 20, 25, 0.8); }
+        .hero-bg { background: linear-gradient(135deg, #0f1419 0%, #1a1a1a 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-8px) rotateX(5deg); box-shadow: 0 25px 50px rgba(0, 212, 255, 0.2); }
+        .glow { box-shadow: 0 0 20px rgba(0, 212, 255, 0.3); }
+        #p5-canvas { position: absolute; top: 0; left: 0; z-index: 0; }
+        .content-overlay { position: relative; z-index: 10; }
+    </style>
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">AI Solutions</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-cyan-400 hover:text-cyan-300 transition-colors">Home</a>
+                    <a href="services.html" class="text-white hover:text-cyan-300 transition-colors">Services</a>
+                    <a href="solutions.html" class="text-white hover:text-cyan-300 transition-colors">Solutions</a>
+                    <a href="contact.html" class="text-white hover:text-cyan-300 transition-colors">Contact</a>
+                </div>
+                <button class="bg-gradient-to-r from-cyan-500 to-purple-600 px-6 py-2 rounded-lg hover:from-cyan-600 hover:to-purple-700 transition-all">
+                    Get Started
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen hero-bg flex items-center">
+        <div id="p5-canvas"></div>
+        <div class="content-overlay w-full">
+            <div class="max-w-7xl mx-auto px-6 pt-20">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-8">
+                        <h1 class="text-6xl lg:text-7xl font-black leading-tight">
+                            <span class="gradient-text block" id="hero-title">Intelligent</span>
+                            <span class="text-white block" id="hero-subtitle">AI Solutions</span>
+                            <span class="text-gray-300 text-4xl lg:text-5xl block font-medium" id="hero-desc">for Modern Business</span>
+                        </h1>
+                        <p class="text-xl text-gray-300 leading-relaxed max-w-lg" id="hero-text">
+                            Transform your business with AI-powered automation, predictive analytics, and intelligent workflows that learn, adapt, and optimize 24/7.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4" id="hero-buttons">
+                            <button class="bg-gradient-to-r from-cyan-500 to-purple-600 px-8 py-4 rounded-lg text-lg font-semibold hover:from-cyan-600 hover:to-purple-700 transition-all glow">
+                                Explore AI Services
+                            </button>
+                            <button class="border border-cyan-500 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-cyan-500 hover:text-black transition-all">
+                                Schedule Consultation
+                            </button>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <img src="resources/hero-ai.jpg" alt="AI Neural Network" class="w-full h-auto rounded-2xl shadow-2xl">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyan-500/20 to-transparent rounded-2xl"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Service Selector Hub -->
+    <section class="py-20 bg-gray-800/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-6">AI Service Hub</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Discover our comprehensive suite of AI-powered solutions designed to transform your business operations and drive unprecedented growth.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="service-grid">
+                <div class="service-card bg-gray-800 rounded-2xl p-8 card-hover cursor-pointer" data-service="automation">
+                    <div class="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center mb-6">
+                        <img src="resources/automation.jpg" alt="AI Automation" class="w-10 h-10 rounded">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">AI-Powered Automation</h3>
+                    <p class="text-gray-300 mb-6">Intelligent workflows that learn, adapt, and optimize your business processes 24/7.</p>
+                    <div class="flex items-center text-cyan-400 font-semibold">
+                        <span>Learn More</span>
+                        <svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="service-card bg-gray-800 rounded-2xl p-8 card-hover cursor-pointer" data-service="analytics">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mb-6">
+                        <img src="resources/analytics.jpg" alt="Predictive Analytics" class="w-10 h-10 rounded">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Predictive Analytics</h3>
+                    <p class="text-gray-300 mb-6">Machine learning models that forecast trends, prevent issues, and maximize opportunities.</p>
+                    <div class="flex items-center text-purple-400 font-semibold">
+                        <span>Explore Analytics</span>
+                        <svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="service-card bg-gray-800 rounded-2xl p-8 card-hover cursor-pointer" data-service="agents">
+                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-600 rounded-xl flex items-center justify-center mb-6">
+                        <img src="resources/agents.jpg" alt="Custom AI Agents" class="w-10 h-10 rounded">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Custom AI Agents</h3>
+                    <p class="text-gray-300 mb-6">Conversational AI assistants that handle customer service, scheduling, and data analysis.</p>
+                    <div class="flex items-center text-green-400 font-semibold">
+                        <span>Meet Agents</span>
+                        <svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="service-card bg-gray-800 rounded-2xl p-8 card-hover cursor-pointer" data-service="intelligence">
+                    <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-600 rounded-xl flex items-center justify-center mb-6">
+                        <img src="resources/intelligence.jpg" alt="Real-Time Intelligence" class="w-10 h-10 rounded">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Real-Time Intelligence</h3>
+                    <p class="text-gray-300 mb-6">AI systems that process data instantly, making smart decisions in milliseconds.</p>
+                    <div class="flex items-center text-orange-400 font-semibold">
+                        <span>View Intelligence</span>
+                        <svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="service-card bg-gray-800 rounded-2xl p-8 card-hover cursor-pointer" data-service="industry">
+                    <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-6">
+                        <img src="resources/manufacturing.jpg" alt="Industry Solutions" class="w-10 h-10 rounded">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Industry-Specific AI</h3>
+                    <p class="text-gray-300 mb-6">Specialized AI solutions for manufacturing, healthcare, retail, and professional services.</p>
+                    <div class="flex items-center text-indigo-400 font-semibold">
+                        <span>Explore Industries</span>
+                        <svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="service-card bg-gray-800 rounded-2xl p-8 card-hover cursor-pointer" data-service="transformation">
+                    <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-rose-600 rounded-xl flex items-center justify-center mb-6">
+                        <img src="resources/consulting.jpg" alt="AI Transformation" class="w-10 h-10 rounded">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">AI Transformation</h3>
+                    <p class="text-gray-300 mb-6">Complete digital transformation powered by cutting-edge artificial intelligence.</p>
+                    <div class="flex items-center text-pink-400 font-semibold">
+                        <span>Start Transformation</span>
+                        <svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Monitor -->
+    <section class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-6">Real-Time AI Performance</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Monitor your AI systems in real-time with comprehensive analytics and performance metrics.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="bg-gray-800 rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold mb-6">Live System Metrics</h3>
+                        <div id="performance-chart" class="h-64"></div>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="bg-gray-800 rounded-xl p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-lg font-semibold">Processing Speed</span>
+                            <span class="text-cyan-400 text-2xl font-bold" id="speed-counter">0</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-cyan-500 to-purple-600 h-2 rounded-full transition-all duration-1000" style="width: 85%"></div>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-2">Operations per second</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 rounded-xl p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-lg font-semibold">Accuracy Rate</span>
+                            <span class="text-green-400 text-2xl font-bold" id="accuracy-counter">0</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-green-500 to-teal-600 h-2 rounded-full transition-all duration-1000" style="width: 96%"></div>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-2">Prediction accuracy</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 rounded-xl p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-lg font-semibold">Cost Savings</span>
+                            <span class="text-purple-400 text-2xl font-bold" id="savings-counter">0</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-purple-500 to-pink-600 h-2 rounded-full transition-all duration-1000" style="width: 73%"></div>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-2">Operational cost reduction</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Metrics -->
+    <section class="py-20 bg-gray-800/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-6">Proven Results</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Join thousands of businesses already transforming with our AI solutions.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-5xl font-black gradient-text mb-4" id="clients-counter">0</div>
+                    <p class="text-lg text-gray-300">Enterprise Clients</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-black gradient-text mb-4" id="automation-counter">0</div>
+                    <p class="text-lg text-gray-300">Processes Automated</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-black gradient-text mb-4" id="savings-percent-counter">0</div>
+                    <p class="text-lg text-gray-300">Avg. Cost Savings</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-black gradient-text mb-4" id="uptime-counter">0</div>
+                    <p class="text-lg text-gray-300">System Uptime</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gradient-to-r from-cyan-500 to-purple-600">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-bold mb-6">Ready to Transform Your Business?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">
+                Schedule a consultation with our AI experts and discover how intelligent automation can revolutionize your operations.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all">
+                    Schedule Free Consultation
+                </button>
+                <button class="border border-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all">
+                    Download AI Guide
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="text-2xl font-bold gradient-text mb-4">AI Solutions</div>
+            <p class="text-gray-400 mb-8">Transforming businesses with intelligent automation</p>
+            <p class="text-sm text-gray-500">© 2025 AI Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

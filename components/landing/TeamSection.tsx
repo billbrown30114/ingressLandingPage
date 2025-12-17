@@ -8,20 +8,15 @@ const teamMembers = [
   },
   {
     name: "Vikas Mishra",
-    role: "Ingress India Development Leader",
-    description: "Vikas has 5 years of IoT software development experience, focusing on scalability, reliability, and maintainability. His primary skill sets include Java, JavaScript, and server-side programming, with IoT experience using ClearBlade, AWS IoT, and Azure IoT.",
-  },
-  {
-    name: "Kirti Bihade",
-    role: "AI/ML Consultant",
-    description: "Kirti specializes in artificial intelligence and machine learning, contributing to the development of intelligent software solutions.",
-  },
+    role: "Ingress Development Leader",
+    description: "Vikas has 10 years of IoT software development experience, focusing on scalability, reliability, and maintainability. His primary skill sets include Java, JavaScript, and server-side programming, with IoT experience using ClearBlade, AWS IoT, and Azure IoT.",
+  }
 ];
 
 export function TeamSection() {
   return (
     <section className="py-16">
-      <div className="container mx-auto px-4">
+      {/* <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold mb-4 text-center">Meet Our Amazing Team</h2>
         <p className="text-lg text-gray-600 dark:text-gray-400 mb-12 text-center">
           Experienced professionals dedicated to delivering exceptional results
@@ -40,7 +35,7 @@ export function TeamSection() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

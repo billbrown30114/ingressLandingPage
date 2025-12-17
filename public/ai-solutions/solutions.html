@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industry Solutions - AI Solutions Tailored for Your Sector</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text { background: linear-gradient(135deg, #00d4ff, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass-nav { backdrop-filter: blur(20px); background: rgba(15, 20, 25, 0.8); }
+        .hero-bg { background: linear-gradient(135deg, #0f1419 0%, #1a1a1a 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-8px) rotateX(5deg); box-shadow: 0 25px 50px rgba(0, 212, 255, 0.2); }
+        .industry-active { border: 2px solid #00d4ff; background: rgba(0, 212, 255, 0.1); }
+        .case-study-card { background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(139, 92, 246, 0.1)); }
+    </style>
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">AI Solutions</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-white hover:text-cyan-300 transition-colors">Home</a>
+                    <a href="services.html" class="text-white hover:text-cyan-300 transition-colors">Services</a>
+                    <a href="solutions.html" class="text-cyan-400 hover:text-cyan-300 transition-colors">Solutions</a>
+                    <a href="contact.html" class="text-white hover:text-cyan-300 transition-colors">Contact</a>
+                </div>
+                <button class="bg-gradient-to-r from-cyan-500 to-purple-600 px-6 py-2 rounded-lg hover:from-cyan-600 hover:to-purple-700 transition-all">
+                    Get Started
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative py-32 hero-bg">
+        <div class="max-w-7xl mx-auto px-6 pt-20">
+            <div class="text-center">
+                <h1 class="text-6xl font-black mb-6">
+                    <span class="gradient-text">Industry Solutions</span>
+                </h1>
+                <p class="text-2xl text-gray-300 max-w-4xl mx-auto">
+                    Specialized AI solutions tailored for your industry's unique challenges and opportunities. Transform your sector with cutting-edge artificial intelligence.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Selector -->
+    <section class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-6">Choose Your Industry</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Discover how AI is transforming your industry with specialized solutions and proven results.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <button class="industry-tab bg-gray-800 p-6 rounded-xl text-left hover:bg-gray-700 transition-all" data-industry="manufacturing">
+                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center mb-4">
+                        <img src="resources/manufacturing.jpg" alt="Manufacturing" class="w-10 h-10 rounded">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Manufacturing</h3>
+                    <p class="text-sm text-gray-400">Smart factories & automation</p>
+                </button>
+
+                <button class="industry-tab bg-gray-800 p-6 rounded-xl text-left hover:bg-gray-700 transition-all" data-industry="healthcare">
+                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-600 rounded-xl flex items-center justify-center mb-4">
+                        <img src="resources/healthcare.jpg" alt="Healthcare" class="w-10 h-10 rounded">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Healthcare</h3>
+                    <p class="text-sm text-gray-400">Patient care & diagnostics</p>
+                </button>
+
+                <button class="industry-tab bg-gray-800 p-6 rounded-xl text-left hover:bg-gray-700 transition-all" data-industry="retail">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mb-4">
+                        <img src="resources/retail.jpg" alt="Retail" class="w-10 h-10 rounded">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Retail</h3>
+                    <p class="text-sm text-gray-400">Customer experience & inventory</p>
+                </button>
+
+                <button class="industry-tab bg-gray-800 p-6 rounded-xl text-left hover:bg-gray-700 transition-all" data-industry="finance">
+                    <div class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center mb-4">
+                        <img src="resources/finance.jpg" alt="Finance" class="w-10 h-10 rounded">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Finance</h3>
+                    <p class="text-sm text-gray-400">Risk management & trading</p>
+                </button>
+            </div>
+
+            <!-- Industry Content -->
+            <div id="industry-content" class="bg-gray-800 rounded-2xl p-8">
+                <!-- Manufacturing Content -->
+                <div id="manufacturing-content" class="industry-content hidden">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center mb-12">
+                        <div>
+                            <h2 class="text-4xl font-bold mb-6">Manufacturing AI Solutions</h2>
+                            <p class="text-xl text-gray-300 mb-8">
+                                Transform your manufacturing operations with AI-powered quality control, predictive maintenance, and smart automation. Reduce defects by 85% and increase production efficiency by 60%.
+                            </p>
+                            <div class="space-y-6">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2">Predictive Maintenance</h4>
+                                        <p class="text-gray-400">Prevent equipment failures before they occur with AI-powered maintenance scheduling.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2">Quality Control AI</h4>
+                                        <p class="text-gray-400">Automated defect detection and quality assurance using computer vision.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2">Supply Chain Optimization</h4>
+                                        <p class="text-gray-400">Optimize inventory, logistics, and procurement with intelligent forecasting.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="resources/manufacturing.jpg" alt="Manufacturing AI" class="w-full h-auto rounded-xl">
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="case-study-card bg-gray-700 rounded-xl p-6">
+                            <h4 class="text-lg font-bold mb-3">Automotive Manufacturer</h4>
+                            <p class="text-gray-300 text-sm mb-4">Reduced production line downtime by 75% with predictive maintenance AI.</p>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-cyan-400">75% Downtime Reduction</span>
+                                <span class="text-green-400">$2M Annual Savings</span>
+                            </div>
+                        </div>
+                        <div class="case-study-card bg-gray-700 rounded-xl p-6">
+                            <h4 class="text-lg font-bold mb-3">Electronics Producer</h4>
+                            <p class="text-gray-300 text-sm mb-4">Improved quality control accuracy to 99.8% with computer vision AI.</p>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-cyan-400">99.8% Accuracy</span>
+                                <span class="text-green-400">85% Defect Reduction</span>
+                            </div>
+                        </div>
+                        <div class="case-study-card bg-gray-700 rounded-xl p-6">
+                            <h4 class="text-lg font-bold mb-3">Steel Manufacturing</h4>
+                            <p class="text-gray-300 text-sm mb-4">Optimized energy consumption by 40% using AI-driven process control.</p>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-cyan-400">40% Energy Savings</span>
+                                <span class="text-green-400">30% Cost Reduction</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Healthcare Content -->
+                <div id="healthcare-content" class="industry-content hidden">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center mb-12">
+                        <div>
+                            <img src="resources/healthcare.jpg" alt="Healthcare AI" class="w-full h-auto rounded-xl">
+                        </div>
+                        <div>
+                            <h2 class="text-4xl font-bold mb-6">Healthcare AI Solutions</h2>
+                            <p class="text-xl text-gray-300 mb-8">
+                                Revolutionize patient care with AI-powered diagnostics, treatment planning, and operational efficiency. Improve diagnostic accuracy by 40% and reduce administrative burden by 70%.
+                            </p>
+                            <div class="space-y-6">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2">AI Diagnostics</h4>
+                                        <p class="text-gray-400">Advanced medical imaging analysis and diagnostic support using deep learning.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2">Patient Flow Optimization</h4>
+                                        <p class="text-gray-400">Optimize hospital operations, scheduling, and resource allocation with AI.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2">Drug Discovery AI</h4>
+                                        <p class="text-gray-400">Accelerate pharmaceutical research and development with machine learning.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="case-study-card bg-gray-700 rounded-xl p-6">
+                            <h4 class="text-lg font-bold mb-3">Regional Hospital Network</h4>
+                            <p class="text-gray-300 text-sm mb-4">Reduced diagnostic errors by 60% using AI-powered medical imaging analysis.</p>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-cyan-400">60% Error Reduction</span>
+                                <span class="text-green-400">40% Faster Diagnosis</span>
+                            </div>
+                        </div>
+                        <div class="case-study-card bg-gray-700 rounded-xl p-6">
+                            <h4 class="text-lg font-bold mb-3">Pharmaceutical Company</h4>
+                            <p class="text-gray-300 text-sm mb-4">Accelerated drug discovery timeline by 3 years using AI molecular modeling.</p>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-cyan-400">3x Faster Discovery</span>
+                                <span class="text-green-400">$50M R&D Savings</span>
+                            </div>
+                        </div>
+                        <div class="case-study-card bg-gray-700 rounded-xl p-6">
+                            <h4 class="text-lg font-bold mb-3">Telehealth Provider</h4>
+                            <p class="text-gray-300 text-sm mb-4">Improved patient outcomes by 35% with AI-powered treatment recommendations.</p>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-cyan-400">35% Better Outcomes</span>
+                                <span class="text-green-400">50% Cost Reduction</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Retail Content -->
+                <div id="retail-content" class="industry-content hidden">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center mb-12">
+                        <div>
+                            <h2 class="text-4xl font-bold mb-6">Retail AI Solutions</h2>
+                            <p class="text-xl text-gray-300 mb-8">
+                                Transform the retail experience with AI-powered personalization, inventory management, and customer insights. Increase sales by 45% and reduce inventory costs by 30%.
+                            </p>
+                            <div class="space-y-6">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2">Personalized Recommendations</h4>
+                                        <p class="text-gray-400">AI-driven product recommendations that increase conversion rates and customer satisfaction.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2">Smart Inventory Management</h4>
+                                        <p class="text-gray-400">Optimize stock levels, reduce waste, and prevent stockouts with predictive analytics.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2">Customer Behavior Analytics</h4>
+                                        <p class="text-gray-400">Deep insights into customer preferences, shopping patterns, and behavior trends.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="resources/retail.jpg" alt="Retail AI" class="w-full h-auto rounded-xl">
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="case-study-card bg-gray-700 rounded-xl p-6">
+                            <h4 class="text-lg font-bold mb-3">E-commerce Platform</h4>
+                            <p class="text-gray-300 text-sm mb-4">Increased conversion rates by 65% with AI-powered product recommendations.</p>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-cyan-400">65% Conversion Boost</span>
+                                <span class="text-green-400">$5M Revenue Increase</span>
+                            </div>
+                        </div>
+                        <div class="case-study-card bg-gray-700 rounded-xl p-6">
+                            <h4 class="text-lg font-bold mb-3">Fashion Retailer</h4>
+                            <p class="text-gray-300 text-sm mb-4">Reduced inventory holding costs by 40% using AI demand forecasting.</p>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-cyan-400">40% Cost Reduction</span>
+                                <span class="text-green-400">25% Faster Turnover</span>
+                            </div>
+                        </div>
+                        <div class="case-study-card bg-gray-700 rounded-xl p-6">
+                            <h4 class="text-lg font-bold mb-3">Supermarket Chain</h4>
+                            <p class="text-gray-300 text-sm mb-4">Improved customer satisfaction by 50% with AI-optimized store layouts.</p>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-cyan-400">50% Satisfaction Boost</span>
+                                <span class="text-green-400">30% Sales Increase</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Finance Content -->
+                <div id="finance-content" class="industry-content hidden">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center mb-12">
+                        <div>
+                            <img src="resources/finance.jpg" alt="Finance AI" class="w-full h-auto rounded-xl">
+                        </div>
+                        <div>
+                            <h2 class="text-4xl font-bold mb-6">Financial AI Solutions</h2>
+                            <p class="text-xl text-gray-300 mb-8">
+                                Revolutionize financial services with AI-powered risk assessment, algorithmic trading, and fraud detection. Improve trading accuracy by 85% and reduce fraud losses by 90%.
+                            </p>
+                            <div class="space-y-6">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2">Algorithmic Trading</h4>
+                                        <p class="text-gray-400">High-frequency trading algorithms with real-time market analysis and decision making.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2">Fraud Detection</h4>
+                                        <p class="text-gray-400">Real-time fraud detection and prevention using advanced pattern recognition.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-2">Risk Assessment</h4>
+                                        <p class="text-gray-400">Comprehensive credit risk analysis and portfolio optimization using machine learning.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="case-study-card bg-gray-700 rounded-xl p-6">
+                            <h4 class="text-lg font-bold mb-3">Investment Bank</h4>
+                            <p class="text-gray-300 text-sm mb-4">Increased trading profits by 120% using AI-powered algorithmic trading strategies.</p>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-cyan-400">120% Profit Increase</span>
+                                <span class="text-green-400">$50M Additional Revenue</span>
+                            </div>
+                        </div>
+                        <div class="case-study-card bg-gray-700 rounded-xl p-6">
+                            <h4 class="text-lg font-bold mb-3">Credit Card Company</h4>
+                            <p class="text-gray-300 text-sm mb-4">Reduced fraud losses by 95% with real-time AI fraud detection system.</p>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-cyan-400">95% Fraud Reduction</span>
+                                <span class="text-green-400">$25M Loss Prevention</span>
+                            </div>
+                        </div>
+                        <div class="case-study-card bg-gray-700 rounded-xl p-6">
+                            <h4 class="text-lg font-bold mb-3">Insurance Provider</h4>
+                            <p class="text-gray-300 text-sm mb-4">Improved claims processing efficiency by 80% using AI automation.</p>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-cyan-400">80% Efficiency Gain</span>
+                                <span class="text-green-400">60% Cost Reduction</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Metrics Dashboard -->
+    <section class="py-20 bg-gray-800/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-6">Industry Impact Metrics</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Real results from AI implementations across different industries.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="bg-gray-800 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold mb-6">Cross-Industry Performance</h3>
+                    <div id="industry-performance-chart" class="h-80"></div>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="bg-gray-800 rounded-xl p-6">
+                        <h4 class="text-xl font-bold mb-4">Implementation Success Rate</h4>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300">Manufacturing</span>
+                                <span class="text-2xl font-bold text-blue-400">94%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-blue-500 to-cyan-600 h-2 rounded-full" style="width: 94%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800 rounded-xl p-6">
+                        <h4 class="text-xl font-bold mb-4">Healthcare</h4>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300">Healthcare</span>
+                                <span class="text-2xl font-bold text-green-400">89%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-green-500 to-teal-600 h-2 rounded-full" style="width: 89%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800 rounded-xl p-6">
+                        <h4 class="text-xl font-bold mb-4">Retail</h4>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300">Retail</span>
+                                <span class="text-2xl font-bold text-purple-400">91%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-purple-500 to-pink-600 h-2 rounded-full" style="width: 91%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800 rounded-xl p-6">
+                        <h4 class="text-xl font-bold mb-4">Finance</h4>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300">Finance</span>
+                                <span class="text-2xl font-bold text-yellow-400">87%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-yellow-500 to-orange-600 h-2 rounded-full" style="width: 87%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gradient-to-r from-cyan-500 to-purple-600">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-bold mb-6">Ready for Industry Transformation?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">
+                Join the AI revolution in your industry. Schedule a consultation to discuss your specific needs and implementation roadmap.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all">
+                    Schedule Industry Consultation
+                </button>
+                <button class="border border-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all">
+                    Download Industry Guide
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="text-2xl font-bold gradient-text mb-4">AI Solutions</div>
+            <p class="text-gray-400 mb-8">Transforming businesses with intelligent automation</p>
+            <p class="text-sm text-gray-500">© 2025 AI Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // Solutions page specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            initIndustryTabs();
+            initIndustryPerformanceChart();
+        });
+
+        function initIndustryTabs() {
+            const tabs = document.querySelectorAll('.industry-tab');
+            const contents = document.querySelectorAll('.industry-content');
+            
+            // Show manufacturing content by default
+            showIndustryContent('manufacturing');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const industry = this.dataset.industry;
+                    showIndustryContent(industry);
+                    
+                    // Update active tab
+                    tabs.forEach(t => t.classList.remove('industry-active'));
+                    this.classList.add('industry-active');
+                });
+            });
+        }
+
+        function showIndustryContent(industry) {
+            const contents = document.querySelectorAll('.industry-content');
+            contents.forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            const targetContent = document.getElementById(`${industry}-content`);
+            if (targetContent) {
+                targetContent.classList.remove('hidden');
+                
+                // Animate content appearance
+                anime({
+                    targets: targetContent,
+                    opacity: [0, 1],
+                    translateY: [20, 0],
+                    duration: 500,
+                    easing: 'easeOutExpo'
+                });
+            }
+        }
+
+        function initIndustryPerformanceChart() {
+            const chart = echarts.init(document.getElementById('industry-performance-chart'));
+            
+            const option = {
+                backgroundColor: 'transparent',
+                grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
+                xAxis: {
+                    type: 'category',
+                    data: ['Manufacturing', 'Healthcare', 'Retail', 'Finance'],
+                    axisLine: { lineStyle: { color: '#64748b' } },
+                    axisLabel: { color: '#94a3b8' }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: 'Efficiency Improvement (%)',
+                    axisLine: { lineStyle: { color: '#64748b' } },
+                    axisLabel: { color: '#94a3b8' },
+                    splitLine: { lineStyle: { color: '#374151' } }
+                },
+                series: [
+                    {
+                        name: 'Cost Reduction',
+                        type: 'bar',
+                        data: [45, 50, 35, 60],
+                        itemStyle: {
+                            color: {
+                                type: 'linear',
+                                x: 0, y: 0, x2: 0, y2: 1,
+                                colorStops: [
+                                    { offset: 0, color: '#00d4ff' },
+                                    { offset: 1, color: '#0ea5e9' }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        name: 'Efficiency Gain',
+                        type: 'bar',
+                        data: [60, 40, 55, 70],
+                        itemStyle: {
+                            color: {
+                                type: 'linear',
+                                x: 0, y: 0, x2: 0, y2: 1,
+                                colorStops: [
+                                    { offset: 0, color: '#8b5cf6' },
+                                    { offset: 1, color: '#a855f7' }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        name: 'Revenue Increase',
+                        type: 'bar',
+                        data: [30, 25, 45, 40],
+                        itemStyle: {
+                            color: {
+                                type: 'linear',
+                                x: 0, y: 0, x2: 0, y2: 1,
+                                colorStops: [
+                                    { offset: 0, color: '#10b981' },
+                                    { offset: 1, color: '#059669' }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                tooltip: {
+                    trigger: 'axis',
+                    backgroundColor: '#1f2937',
+                    borderColor: '#374151',
+                    textStyle: { color: '#f9fafb' }
+                },
+                legend: {
+                    data: ['Cost Reduction', 'Efficiency Gain', 'Revenue Increase'],
+                    textStyle: { color: '#94a3b8' },
+                    top: 10
+                }
+            };
+            
+            chart.setOption(option);
+            
+            // Animate chart on load
+            setTimeout(() => {
+                chart.setOption(option);
+            }, 500);
+        }
+    </script>
+</body>
+</html>

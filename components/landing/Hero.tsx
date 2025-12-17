@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Sparkles, Rocket } from "lucide-react";
+import { Sparkles, Rocket, Code, Wifi, Brain, Bot, Zap } from "lucide-react";
 import { ChristmasAnimation } from "./ChristmasAnimation";
 
 export function Hero() {
@@ -16,7 +16,7 @@ export function Hero() {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-3 gap-8 items-center">
+          <div className="grid lg:grid-cols-3 gap-8 items-center mb-16">
             {/* Main content - takes 2 columns */}
             <div className="lg:col-span-2 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 lg:inline-flex">
@@ -36,11 +36,26 @@ export function Hero() {
                 Intelligent Automation • Machine Learning • AI Integration
               </p>
               
-              <p className="text-xl mb-10 text-blue-200 max-w-3xl lg:mx-0 mx-auto">
+              <p className="text-xl mb-8 text-blue-200 max-w-3xl lg:mx-0 mx-auto">
                 We build cutting-edge AI systems that automate workflows, predict outcomes, and revolutionize how your business operates
               </p>
+
+              <div className="flex flex-wrap gap-3 mb-8 justify-center lg:justify-start">
+                <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg">
+                  <Brain className="w-4 h-4 text-orange-300" strokeWidth={2} />
+                  <span className="text-sm font-bold text-white">Machine Learning</span>
+                </div>
+                <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg">
+                  <Bot className="w-4 h-4 text-blue-300" strokeWidth={2} />
+                  <span className="text-sm font-bold text-white">AI Automation</span>
+                </div>
+                <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg">
+                  <Zap className="w-4 h-4 text-cyan-300" strokeWidth={2} />
+                  <span className="text-sm font-bold text-white">Real-Time AI</span>
+                </div>
+              </div>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-12">
                 <Link
                   href="/schedule"
                   className="group relative px-10 py-5 bg-gradient-to-r from-orange-600 to-blue-600 rounded-xl font-bold text-lg hover:from-orange-500 hover:to-blue-500 transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-orange-500/50"
@@ -53,14 +68,14 @@ export function Hero() {
                 </Link>
                 
                 <Link
-                  href="/services"
+                  href="/ai-solutions/index.html"
                   className="px-10 py-5 bg-white/10 backdrop-blur-sm border-2 border-white/30 rounded-xl font-bold text-lg hover:bg-white/20 transition-all duration-300"
                 >
                   Explore AI Solutions
                 </Link>
               </div>
               
-              <div className="mt-16 grid grid-cols-3 gap-8 max-w-2xl lg:mx-0 mx-auto">
+              <div className="grid grid-cols-3 gap-8 max-w-2xl lg:mx-0 mx-auto">
                 <div className="text-center">
                   <div className="text-4xl font-black text-orange-300">10x</div>
                   <div className="text-sm text-blue-200 mt-2">Productivity Boost</div>
@@ -82,6 +97,51 @@ export function Hero() {
                 <ChristmasAnimation />
               </div>
             </div>
+          </div>
+
+          {/* Featured Services - Main Offerings */}
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <Link
+              href="/application-development"
+              className="group relative bg-gradient-to-br from-purple-700 via-purple-600 to-blue-700 rounded-2xl p-10 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-white/10"
+            >
+              <div className="relative z-10">
+                <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                  <Code className="w-16 h-16 text-white" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-3xl font-black mb-4 text-white">
+                  Simplify, Modernize & Automate
+                </h3>
+                <p className="text-lg text-white/95 leading-relaxed mb-6">
+                  AI-First Application Development
+                </p>
+                <div className="inline-flex items-center gap-2 text-white font-semibold">
+                  Learn More
+                  <span className="text-xl transform group-hover:translate-x-2 transition-transform">→</span>
+                </div>
+              </div>
+            </Link>
+
+            <Link
+              href="/iot"
+              className="group relative bg-gradient-to-br from-orange-700 via-orange-600 to-blue-700 rounded-2xl p-10 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-white/10"
+            >
+              <div className="relative z-10">
+                <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                  <Wifi className="w-16 h-16 text-white" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-3xl font-black mb-4 text-white">
+                  Unlocking Real-World Intelligence
+                </h3>
+                <p className="text-lg text-white/95 leading-relaxed mb-6">
+                  IoT & Connected Products
+                </p>
+                <div className="inline-flex items-center gap-2 text-white font-semibold">
+                  Learn More
+                  <span className="text-xl transform group-hover:translate-x-2 transition-transform">→</span>
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
